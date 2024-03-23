@@ -30,7 +30,7 @@ def speech_to_text(language='en-US'):
 
 def send_transcription(transcription):
     # Define the Flask server URL
-    server_url = "http://localhost:5001/receive_transcription"
+    server_url = "http://192.168.1.159:5000/receive_transcription"
 
     # Send a POST request with the transcription data
     response = requests.post(server_url, json={"transcription": transcription})
@@ -40,7 +40,7 @@ def send_transcription(transcription):
 
 def audio_receive():
     # Define the Flask server URL
-    server_url = "http://localhost:5001/static/output.wav"
+    server_url = "http://192.168.1.159:5000/static/output.wav"
     response = requests.get(server_url)
     if response.status_code == 200:
         p = pyaudio.PyAudio()
